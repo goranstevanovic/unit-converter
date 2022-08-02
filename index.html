@@ -9,5 +9,55 @@
     <script src="app.js" defer></script>
     <title>Unit Converter</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Unit Converter</h1>
+      <h2 class="header__subtitle">metric ⇔ imperial</h2>
+      <input
+        id="input"
+        class="header__input"
+        type="number"
+        value="20"
+        min="0.01"
+        max="999.99"
+        step="0.01"
+      />
+      <button id="convert" class="header__button">Convert</button>
+    </header>
+    <main class="results">
+      <section class="results__card">
+        <h3 class="results__title">Length (meters ⇔ feet)</h3>
+        <p class="results__output">
+          <span id="input-meters">20</span> meters =
+          <span id="output-feet">65.616</span> feet
+        </p>
+        <p class="results__output">
+          <span id="input-feet">20</span> feet =
+          <span id="output-meters">6.069</span> meters
+        </p>
+      </section>
+      <section class="results__card">
+        <h3 class="results__title">Volume (liters ⇔ gallons)</h3>
+        <p class="results__output">
+          <span id="input-liters">20</span> liters =
+          <span id="output-gallons">5.284</span> gallons
+        </p>
+        <p class="results__output">
+          <span id="input-gallons">20</span> gallons =
+          <span id="output-liters">75.708</span> liters
+        </p>
+      </section>
+      <section class="results__card">
+        <h3 class="results__title">Mass (kilograms ⇔ pounds)</h3>
+        <p class="results__output">
+          <span id="input-kilograms">20</span> kilograms =
+          <span id="output-pounds">44.092</span> pounds
+        </p>
+        <p class="results__output">
+          <span id="input-pounds">20</span> pounds =
+          <span id="output-kilograms">9.072</span> kilograms
+        </p>
+      </section>
+    </main>
+  </body>
 </html>
