@@ -77,18 +77,18 @@ body {
 }
 
 .results__card {
-  padding: 2em;
   background-color: var(--bg-lighter);
-  width: 90%;
   margin: 1em auto;
   max-width: 30em;
+  padding: 2em;
+  width: 90%;
 }
 
 .results__title {
-  font-weight: 600;
-  font-size: 1.25rem;
-  margin: 0 0 1em;
   color: var(--text-dark);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1em;
 }
 
 .results__output {
@@ -97,6 +97,6 @@ body {
 }
 
 .results__output span {
-  font-weight: 600;
   font-size: 1.25rem;
+  font-weight: 600;
 }
