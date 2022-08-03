@@ -70,7 +70,7 @@ body {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
+  letter-spacing: 0.03em;
   padding: 1em 1.5em;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
 }
