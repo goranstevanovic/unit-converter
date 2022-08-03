@@ -30,6 +30,26 @@ function convertMetersToFeet(amount) {
   return amount * 3.28;
 }
 
+function convertFeetToMeters(amount) {
+  return amount * 0.3;
+}
+
+function convertLitersToGallons(amount) {
+  return amount * 0.264172;
+}
+
+function convertGallonsToLiters(amount) {
+  return amount * 3.785412;
+}
+
+function convertKilogramsToPounds(amount) {
+  return amount * 2.2;
+}
+
+function convertPoundsToKilograms(amount) {
+  return amount * 0.45359237;
+}
+
 function updateInputValues(amount, decimals) {
   inputMetersEl.textContent =
     inputFeetEl.textContent =
