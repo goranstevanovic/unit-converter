@@ -8,9 +8,8 @@ const allowedDecimalDigits = 2;
 const inputFieldCharacterLimit =
   allowedSignificantDigits + allowedDecimalDigits + 1; // 1 is for the separator
 
-// form elements
+// form element
 const amountInput = document.getElementById('input');
-const convertBtn = document.getElementById('convert');
 
 // input value elements
 const inputMetersEl = document.getElementById('input-meters');
@@ -108,15 +107,14 @@ function updateOutputValues(amount, decimals) {
 }
 
 function handleAmountChange(e) {
-  if (e.target.value.length > inputFieldCharacterLimit) {
-    e.target.value = e.target.value.substr(0, inputFieldCharacterLimit);
-  }
-}
-
-function handleConvertClick(e) {
   if (amountInput.value.length === 0 || amountInput.value <= 0) {
     return;
   }
+
+  if (e.target.value.length > inputFieldCharacterLimit) {
+    e.target.value = e.target.value.substr(0, inputFieldCharacterLimit);
+  }
+
   const amount = Number.parseFloat(amountInput.value);
 
   updateInputValues(amount, initialDecimals);
@@ -131,4 +129,3 @@ updateInputValues(initialAmount, initialDecimals);
 updateOutputValues(initialAmount, initialDecimals);
 
 amountInput.addEventListener('input', handleAmountChange);
-convertBtn.addEventListener('click', handleConvertClick);
