@@ -54,23 +54,23 @@ function formatNumberDisplay(number, decimals) {
 }
 
 function convertMetersToFeet(amount) {
-  return amount * 3.28;
+  return amount * 3.280839895;
 }
 
 function convertFeetToMeters(amount) {
-  return amount * 0.3;
+  return amount * 0.3048;
 }
 
 function convertLitersToGallons(amount) {
-  return amount * 0.264172;
+  return amount * 0.2641720524;
 }
 
 function convertGallonsToLiters(amount) {
-  return amount * 3.785412;
+  return amount * 3.785411784;
 }
 
 function convertKilogramsToPounds(amount) {
-  return amount * 2.2;
+  return amount * 2.20462262185;
 }
 
 function convertPoundsToKilograms(amount) {
