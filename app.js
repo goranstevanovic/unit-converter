@@ -3,9 +3,10 @@
 // initial values
 const initialAmount = 42;
 const initialDecimals = 2;
-const allowedDigits = 6;
-const allowedDecimals = 2;
-const inputFieldCharacterLimit = allowedDigits + allowedDecimals + 1;
+const allowedSignificantDigits = 6;
+const allowedDecimalDigits = 2;
+const inputFieldCharacterLimit =
+  allowedSignificantDigits + allowedDecimalDigits + 1; // 1 is for the separator
 
 // form elements
 const amountInput = document.getElementById('input');
