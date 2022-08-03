@@ -26,6 +26,29 @@ const outputKilogramsEl = document.getElementById('output-kilograms');
 
 // functions
 
+function getNavigatorLanguage() {
+  if (navigator.languages && navigator.languages.length) {
+    return navigator.languages[0];
+  } else {
+    return (
+      navigator.userLanguage ||
+      navigator.language ||
+      navigator.browserLanguage ||
+      'en-US'
+    );
+  }
+}
+
+function formatNumberDisplay(number, decimals) {
+  const locale = getNavigatorLanguage();
+  const options = {
+    style: 'decimal',
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  };
+  return new Intl.NumberFormat(locale, options).format(number);
+}
+
 function convertMetersToFeet(amount) {
   return amount * 3.28;
 }
@@ -57,27 +80,27 @@ function updateInputValues(amount, decimals) {
     inputGallonsEl.textContent =
     inputKilogramsEl.textContent =
     inputPoundsEl.textContent =
-      amount.toFixed(decimals);
+      formatNumberDisplay(amount, decimals);
 }
 
 function updateOutputValues(amount, decimals) {
   const feet = convertMetersToFeet(amount);
-  outputFeetEl.textContent = feet.toFixed(decimals);
+  outputFeetEl.textContent = formatNumberDisplay(feet, decimals);
 
   const meters = convertFeetToMeters(amount);
-  outputMetersEl.textContent = meters.toFixed(decimals);
+  outputMetersEl.textContent = formatNumberDisplay(meters, decimals);
 
   const gallons = convertLitersToGallons(amount);
-  outputGallonsEl.textContent = gallons.toFixed(decimals);
+  outputGallonsEl.textContent = formatNumberDisplay(gallons, decimals);
 
   const liters = convertGallonsToLiters(amount);
-  outputLitersEl.textContent = liters.toFixed(decimals);
+  outputLitersEl.textContent = formatNumberDisplay(liters, decimals);
 
   const pounds = convertKilogramsToPounds(amount);
-  outputPoundsEl.textContent = pounds.toFixed(decimals);
+  outputPoundsEl.textContent = formatNumberDisplay(pounds, decimals);
 
   const kilograms = convertPoundsToKilograms(amount);
-  outputKilogramsEl.textContent = kilograms.toFixed(decimals);
+  outputKilogramsEl.textContent = formatNumberDisplay(kilograms, decimals);
 }
 
 function handleConvertClick(e) {
