@@ -87,13 +87,20 @@ body {
 .results__title {
   color: var(--text-dark);
   font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 1em;
+  font-weight: 800;
+  margin: 0 0 0.5em;
+}
+
+.results__subtitle {
+  color: var(--text-dark);
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 1.25em;
 }
 
 .results__output {
   color: var(--text-darker);
-  margin: 1em 0 0;
+  margin: 1.25em 0 0;
 }
 
 .results__output span {
