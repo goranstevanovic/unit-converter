@@ -23,3 +23,21 @@ const outputGallonsEl = document.getElementById('output-gallons');
 const outputLitersEl = document.getElementById('output-liters');
 const outputPoundsEl = document.getElementById('output-pounds');
 const outputKilogramsEl = document.getElementById('output-kilograms');
+
+// functions
+
+function updateInputs(amount, decimals) {
+  inputMetersEl.textContent =
+    inputFeetEl.textContent =
+    inputLitersEl.textContent =
+    inputGallonsEl.textContent =
+    inputKilogramsEl.textContent =
+    inputPoundsEl.textContent =
+      amount.toFixed(decimals);
+}
+
+// Set default amount value on first start
+amountInput.value = initialAmount.toFixed(initialDecimals);
+
+// Update input values on first start
+updateInputs(initialAmount, initialDecimals);
