@@ -114,6 +114,9 @@ function handleAmountChange(e) {
 }
 
 function handleConvertClick(e) {
+  if (amountInput.value.length === 0 || amountInput.value <= 0) {
+    return;
+  }
   const amount = Number.parseFloat(amountInput.value);
 
   updateInputValues(amount, initialDecimals);
