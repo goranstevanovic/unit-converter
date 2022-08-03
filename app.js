@@ -3,6 +3,10 @@
 // initial values
 const initialAmount = 42;
 const initialDecimals = 2;
+const allowedSignificantDigits = 6;
+const allowedDecimalDigits = 2;
+const inputFieldCharacterLimit =
+  allowedSignificantDigits + allowedDecimalDigits + 1; // 1 is for the separator
 
 // form elements
 const amountInput = document.getElementById('input');
@@ -103,6 +107,12 @@ function updateOutputValues(amount, decimals) {
   outputKilogramsEl.textContent = formatNumberDisplay(kilograms, decimals);
 }
 
+function handleAmountChange(e) {
+  if (e.target.value.length > inputFieldCharacterLimit) {
+    e.target.value = e.target.value.substr(0, inputFieldCharacterLimit);
+  }
+}
+
 function handleConvertClick(e) {
   const amount = Number.parseFloat(amountInput.value);
 
@@ -117,4 +127,5 @@ amountInput.value = initialAmount.toFixed(initialDecimals);
 updateInputValues(initialAmount, initialDecimals);
 updateOutputValues(initialAmount, initialDecimals);
 
+amountInput.addEventListener('input', handleAmountChange);
 convertBtn.addEventListener('click', handleConvertClick);

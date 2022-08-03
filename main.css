@@ -55,10 +55,10 @@ body {
   font-family: inherit;
   font-size: 3rem;
   margin: auto auto 0.25em;
-  max-width: 6em;
+  max-width: 10em;
   padding: 0.16em 0.32em;
   text-align: right;
-  width: 80%;
+  width: 90%;
 }
 
 .header__button {
