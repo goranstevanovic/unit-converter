@@ -63,6 +63,21 @@ function updateInputValues(amount, decimals) {
 function updateOutputValues(amount, decimals) {
   const feet = convertMetersToFeet(amount);
   outputFeetEl.textContent = feet.toFixed(decimals);
+
+  const meters = convertFeetToMeters(amount);
+  outputMetersEl.textContent = meters.toFixed(decimals);
+
+  const gallons = convertLitersToGallons(amount);
+  outputGallonsEl.textContent = gallons.toFixed(decimals);
+
+  const liters = convertGallonsToLiters(amount);
+  outputLitersEl.textContent = liters.toFixed(decimals);
+
+  const pounds = convertKilogramsToPounds(amount);
+  outputPoundsEl.textContent = pounds.toFixed(decimals);
+
+  const kilograms = convertPoundsToKilograms(amount);
+  outputKilogramsEl.textContent = kilograms.toFixed(decimals);
 }
 
 function handleConvertClick(e) {
