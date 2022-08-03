@@ -36,8 +36,16 @@ function updateInputs(amount, decimals) {
       amount.toFixed(decimals);
 }
 
+function handleConvertClick(e) {
+  const amount = Number.parseFloat(amountInput.value);
+
+  updateInputs(amount, initialDecimals);
+}
+
 // Set default amount value on first start
 amountInput.value = initialAmount.toFixed(initialDecimals);
 
 // Update input values on first start
 updateInputs(initialAmount, initialDecimals);
+
+convertBtn.addEventListener('click', handleConvertClick);
