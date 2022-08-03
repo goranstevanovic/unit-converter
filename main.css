@@ -1,0 +1,76 @@
+:root {
+  --bg-dark-gradient: linear-gradient(to bottom, #111827 0%, #4b5563 100%);
+  --bg-light: #f4f4f4;
+  --bg-lighter: #ffffff;
+  --text-dark: #374151;
+  --text-darker: #111827;
+  --text-light: #f3f4f6;
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.header {
+  background-image: var(--bg-dark-gradient);
+  color: var(--text-light);
+  padding: 2em 1em;
+}
+
+.header__title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.25em;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.header__subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.75em;
+  margin-top: 0;
+}
+
+.header__input {
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--text-light);
+  color: inherit;
+  display: block;
+  font-family: inherit;
+  font-size: 3rem;
+  margin: auto auto 0.25em;
+  max-width: 6em;
+  padding: 0.16em 0.32em;
+  text-align: right;
+  width: 80%;
+}
+
+.header__button {
+  background-color: var(--text-light);
+  border-radius: 8px;
+  border: none;
+  color: var(--text-darker);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
