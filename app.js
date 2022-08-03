@@ -26,6 +26,10 @@ const outputKilogramsEl = document.getElementById('output-kilograms');
 
 // functions
 
+function convertMetersToFeet(amount) {
+  return amount * 3.28;
+}
+
 function updateInputValues(amount, decimals) {
   inputMetersEl.textContent =
     inputFeetEl.textContent =
@@ -36,16 +40,23 @@ function updateInputValues(amount, decimals) {
       amount.toFixed(decimals);
 }
 
+function updateOutputValues(amount, decimals) {
+  const feet = convertMetersToFeet(amount);
+  outputFeetEl.textContent = feet.toFixed(decimals);
+}
+
 function handleConvertClick(e) {
   const amount = Number.parseFloat(amountInput.value);
 
   updateInputValues(amount, initialDecimals);
+  updateOutputValues(amount, initialDecimals);
 }
 
 // Set default amount value on first start
 amountInput.value = initialAmount.toFixed(initialDecimals);
 
-// Update input values on first start
+// Update input and output values on first start
 updateInputValues(initialAmount, initialDecimals);
+updateOutputValues(initialAmount, initialDecimals);
 
 convertBtn.addEventListener('click', handleConvertClick);
