@@ -26,7 +26,7 @@ const outputKilogramsEl = document.getElementById('output-kilograms');
 
 // functions
 
-function updateInputs(amount, decimals) {
+function updateInputValues(amount, decimals) {
   inputMetersEl.textContent =
     inputFeetEl.textContent =
     inputLitersEl.textContent =
@@ -39,13 +39,13 @@ function updateInputs(amount, decimals) {
 function handleConvertClick(e) {
   const amount = Number.parseFloat(amountInput.value);
 
-  updateInputs(amount, initialDecimals);
+  updateInputValues(amount, initialDecimals);
 }
 
 // Set default amount value on first start
 amountInput.value = initialAmount.toFixed(initialDecimals);
 
 // Update input values on first start
-updateInputs(initialAmount, initialDecimals);
+updateInputValues(initialAmount, initialDecimals);
 
 convertBtn.addEventListener('click', handleConvertClick);
