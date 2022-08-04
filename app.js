@@ -4,7 +4,7 @@
 const initialAmount = 42;
 const initialDecimals = 2;
 const amountFieldCharacterLimit = 9;
-const decimalsFieldCharacterLimit = 1;
+const maximumResultsDecimals = 6;
 
 // form element
 const amountInput = document.getElementById('amount');
@@ -105,6 +105,14 @@ function updateOutputValues(amount, decimals) {
   outputKilogramsEl.textContent = formatNumberDisplay(kilograms, decimals);
 }
 
+function updateValues() {
+  const amount = Number.parseFloat(amountInput.value);
+  const decimals = Number.parseInt(decimalsInput.value);
+
+  updateInputValues(amount, decimals);
+  updateOutputValues(amount, decimals);
+}
+
 function updateResults(e) {
   // Do not allow empty amount and decimals inputs,
   // or negative values
@@ -112,8 +120,7 @@ function updateResults(e) {
     amountInput.value.length === 0 ||
     amountInput.value <= 0 ||
     decimalsInput.value.length === 0 ||
-    decimalsInput.value < 0 ||
-    decimalsInput.value > 6
+    decimalsInput.value < 0
   ) {
     return;
   }
@@ -123,17 +130,11 @@ function updateResults(e) {
     amountInput.value = amountInput.value.substr(0, amountFieldCharacterLimit);
   }
 
-  if (decimalsInput.value.length > decimalsFieldCharacterLimit) {
-    decimalsInput.value = decimalsInput.value(
-      substr(0, decimalsFieldCharacterLimit)
-    );
+  if (decimalsInput.value > maximumResultsDecimals) {
+    decimalsInput.value = maximumResultsDecimals;
   }
 
-  const amount = Number.parseFloat(amountInput.value);
-  const decimals = Number.parseInt(decimalsInput.value);
-
-  updateInputValues(amount, decimals);
-  updateOutputValues(amount, decimals);
+  updateValues();
 }
 
 // Set default amount value on first start
