@@ -47,6 +47,12 @@ body {
   margin-top: 0;
 }
 
+.header__label {
+  font-size: 1rem;
+  margin-bottom: 0.75em;
+  display: block;
+}
+
 .header__input {
   background-color: rgba(255, 255, 255, 0.15);
   border: 1px solid var(--text-light);
@@ -59,6 +65,14 @@ body {
   padding: 0.16em 0.32em;
   text-align: right;
   width: 90%;
+}
+
+.header__input--amount {
+  margin-bottom: 0.75em;
+}
+
+.header__input--decimals {
+  width: 2em;
 }
 
 .header__button {

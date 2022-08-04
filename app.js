@@ -9,7 +9,7 @@ const inputFieldCharacterLimit =
   allowedSignificantDigits + allowedDecimalDigits + 1; // 1 is for the separator
 
 // form element
-const amountInput = document.getElementById('input');
+const amountInput = document.getElementById('amount');
 
 // input value elements
 const inputMetersEl = document.getElementById('input-meters');
