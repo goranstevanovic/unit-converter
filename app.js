@@ -3,10 +3,8 @@
 // initial values
 const initialAmount = 42;
 const initialDecimals = 2;
-const allowedSignificantDigits = 6;
-const allowedDecimalDigits = 2;
-const inputFieldCharacterLimit =
-  allowedSignificantDigits + allowedDecimalDigits + 1; // 1 is for the separator
+const amountFieldCharacterLimit = 9;
+const decimalsFieldCharacterLimit = 1;
 
 // form element
 const amountInput = document.getElementById('amount');
@@ -108,6 +106,8 @@ function updateOutputValues(amount, decimals) {
 }
 
 function updateResults(e) {
+  // Do not allow empty amount and decimals inputs,
+  // or negative values
   if (
     amountInput.value.length === 0 ||
     amountInput.value <= 0 ||
@@ -118,8 +118,15 @@ function updateResults(e) {
     return;
   }
 
-  if (e.target.value.length > inputFieldCharacterLimit) {
-    e.target.value = e.target.value.substr(0, inputFieldCharacterLimit);
+  // Do not allow more characters than allowed
+  if (amountInput.value.length > amountFieldCharacterLimit) {
+    amountInput.value = amountInput.value.substr(0, amountFieldCharacterLimit);
+  }
+
+  if (decimalsInput.value.length > decimalsFieldCharacterLimit) {
+    decimalsInput.value = decimalsInput.value(
+      substr(0, decimalsFieldCharacterLimit)
+    );
   }
 
   const amount = Number.parseFloat(amountInput.value);
