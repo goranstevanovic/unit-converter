@@ -10,6 +10,7 @@ const inputFieldCharacterLimit =
 
 // form element
 const amountInput = document.getElementById('amount');
+const decimalsInput = document.getElementById('output-decimals');
 
 // input value elements
 const inputMetersEl = document.getElementById('input-meters');
@@ -106,8 +107,14 @@ function updateOutputValues(amount, decimals) {
   outputKilogramsEl.textContent = formatNumberDisplay(kilograms, decimals);
 }
 
-function handleAmountChange(e) {
-  if (amountInput.value.length === 0 || amountInput.value <= 0) {
+function updateResults(e) {
+  if (
+    amountInput.value.length === 0 ||
+    amountInput.value <= 0 ||
+    decimalsInput.value.length === 0 ||
+    decimalsInput.value < 0 ||
+    decimalsInput.value > 6
+  ) {
     return;
   }
 
@@ -116,9 +123,10 @@ function handleAmountChange(e) {
   }
 
   const amount = Number.parseFloat(amountInput.value);
+  const decimals = Number.parseInt(decimalsInput.value);
 
-  updateInputValues(amount, initialDecimals);
-  updateOutputValues(amount, initialDecimals);
+  updateInputValues(amount, decimals);
+  updateOutputValues(amount, decimals);
 }
 
 // Set default amount value on first start
@@ -128,4 +136,5 @@ amountInput.value = initialAmount.toFixed(initialDecimals);
 updateInputValues(initialAmount, initialDecimals);
 updateOutputValues(initialAmount, initialDecimals);
 
-amountInput.addEventListener('input', handleAmountChange);
+amountInput.addEventListener('input', updateResults);
+decimalsInput.addEventListener('input', updateResults);
