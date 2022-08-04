@@ -19,14 +19,27 @@
     <header class="header">
       <h1 class="header__title">Unit Converter</h1>
       <h2 class="header__subtitle">metric ⇔ imperial</h2>
+      <label class="header__label" for="amount">Amount</label>
       <input
-        id="input"
-        class="header__input"
+        id="amount"
+        class="header__input header__input--amount"
         type="number"
         value="20.00"
         min="0.01"
         max="999999.99"
         step="0.01"
+      />
+      <label class="header__label" for="output-decimals"
+        >Results decimals</label
+      >
+      <input
+        id="output-decimals"
+        class="header__input header__input--decimals"
+        type="number"
+        value="2"
+        min="0"
+        max="6"
+        step="1"
       />
     </header>
     <main class="results">
