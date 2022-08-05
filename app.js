@@ -140,6 +140,26 @@ function updateResults(e) {
   updateValues();
 }
 
+function displayToastMessage(text) {
+  let toastEl = null;
+
+  if (document.getElementById('toast-message')) {
+    toastEl = document.getElementById('toast-message');
+    toastEl.remove();
+  }
+
+  toastEl = document.createElement('p');
+  toastEl.id = 'toast-message';
+  toastEl.classList.add('toast-message');
+  toastEl.textContent = text;
+
+  document.body.appendChild(toastEl);
+
+  setTimeout(function () {
+    toastEl.remove();
+  }, 3000);
+}
+
 function copyToClipboard(e) {
   if (!e.target.closest('.results__output')) {
     return;
@@ -149,14 +169,15 @@ function copyToClipboard(e) {
     .closest('.results__output')
     .textContent.trim()
     .replace(/\s{2,}/g, ' ');
-  console.log(text);
 
   navigator.clipboard
     .writeText(text)
     .then(function () {
-      console.log('text copied');
+      displayToastMessage('Result copied to clipboard');
     })
-    .catch('text not copied');
+    .catch(function (error) {
+      displayToastMessage('There was an error when copying to clipbard');
+    });
 }
 
 // Set default amount value on first start

@@ -119,3 +119,14 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
 }
+
+.toast-message {
+  position: fixed;
+  bottom: 1em;
+  background-color: var(--text-darker);
+  color: var(--text-light);
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
+  left: 50%;
+  transform: translateX(-50%);
+}
