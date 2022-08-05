@@ -10,6 +10,9 @@ const maximumResultsDecimals = 6;
 const amountInput = document.getElementById('amount');
 const decimalsInput = document.getElementById('output-decimals');
 
+// results section
+const resultsEl = document.getElementById('results');
+
 // input value elements
 const inputMetersEl = document.getElementById('input-meters');
 const inputFeetEl = document.getElementById('input-feet');
@@ -137,6 +140,25 @@ function updateResults(e) {
   updateValues();
 }
 
+function copyToClipboard(e) {
+  if (!e.target.closest('.results__output')) {
+    return;
+  }
+
+  const text = e.target
+    .closest('.results__output')
+    .textContent.trim()
+    .replace(/\s{2,}/g, ' ');
+  console.log(text);
+
+  navigator.clipboard
+    .writeText(text)
+    .then(function () {
+      console.log('text copied');
+    })
+    .catch('text not copied');
+}
+
 // Set default amount value on first start
 amountInput.value = initialAmount.toFixed(initialDecimals);
 
@@ -146,3 +168,4 @@ updateOutputValues(initialAmount, initialDecimals);
 
 amountInput.addEventListener('input', updateResults);
 decimalsInput.addEventListener('input', updateResults);
+resultsEl.addEventListener('click', copyToClipboard);
